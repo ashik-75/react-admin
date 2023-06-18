@@ -12,7 +12,7 @@ function Header({ setIsOpen }: { setIsOpen: (value: boolean) => void }) {
       <div className="flex">
         <button
           onClick={() => setIsOpen(true)}
-          className="rounded-full p-3 hover:bg-zinc-50 sm:hidden"
+          className="rounded-full p-3 hover:bg-zinc-50 xl:hidden"
         >
           <MenuIcon className="icon" />
         </button>

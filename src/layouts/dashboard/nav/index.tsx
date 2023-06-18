@@ -12,7 +12,7 @@ function Navbar({
   setOpen: (value: boolean) => void;
 }) {
   return (
-    <div className="sticky left-0 top-0 hidden h-screen w-[280px] border-r border-dashed bg-white sm:block">
+    <div className="sticky left-0 top-0 hidden h-screen w-[280px] border-r border-dashed bg-white xl:block">
       <div className="h-screen space-y-10 overflow-y-scroll scrollbar-hide">
         <RenderNav />
 

@@ -1,7 +1,10 @@
 import AppConvertionRate from "../sections/@dashboard/app/AppConvertionRate";
 import AppCurrentSubject from "../sections/@dashboard/app/AppCurrentSubject";
 import AppCurrentVisit from "../sections/@dashboard/app/AppCurrentVisit";
-import AppTimeLine from "../sections/@dashboard/app/AppTimeLine";
+import AppDownloads from "../sections/@dashboard/app/AppDownloads";
+import AppInstalled from "../sections/@dashboard/app/AppInstalled";
+import AppSold from "../sections/@dashboard/app/AppSold";
+import AppSparkline from "../sections/@dashboard/app/AppSparkline";
 import AppWebsiteVisit from "../sections/@dashboard/app/AppWebsiteVisit";
 
 function DashboardAppPage() {
@@ -100,10 +103,56 @@ function DashboardAppPage() {
             ]}
           />
         </div>
+      </div>
+      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <AppDownloads
+          title="Current Download"
+          subtitle="(+10%) than last year"
+          chartData={[
+            { label: "Ios", value: 400454 },
+            { label: "Android", value: 430343 },
+            { label: "Mac", value: 54834 },
+            { label: "Windows", value: 21270 },
+          ]}
+        />
 
-        <div className="grid grid-cols-2 gap-5">
-          <AppTimeLine />
-        </div>
+        <AppInstalled
+          title="Area Installed"
+          // chartLabels={[
+          //   "01/01/2003",
+          //   "02/01/2003",
+          //   "03/01/2003",
+          //   "04/01/2003",
+          //   "05/01/2003",
+          //   "06/01/2003",
+          //   "07/01/2003",
+          //   "08/01/2003",
+          //   "09/01/2003",
+          //   "10/01/2003",
+          //   "11/01/2003",
+          // ]}
+          chartData={[
+            { name: "Asia", type: "area", data: [80, 50, 30, 40, 100, 20] },
+            { name: "America", type: "area", data: [20, 30, 40, 80, 20, 80] },
+          ]}
+        />
+      </div>
+
+      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <AppSold
+          title="Current Download"
+          subtitle="(+10%) than last year"
+          chartData={[{ label: "Sold", value: 70 }]}
+        />
+
+        <AppSparkline
+          title="Total Active users"
+          chartData={[
+            {
+              data: [80, 50, 30, 40, 100, 20, 300, 278, 78, 38, 89],
+            },
+          ]}
+        />
       </div>
     </div>
   );

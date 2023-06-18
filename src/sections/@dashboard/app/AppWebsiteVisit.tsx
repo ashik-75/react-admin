@@ -1,5 +1,6 @@
 import ReactApexChart from "react-apexcharts";
 import CardHeader from "../../../components/CardHeader/CardHeader";
+import useChart from "../../../components/chart/useChart";
 
 interface ChartDataType {
   name: string;
@@ -21,9 +22,30 @@ function AppWebsiteVisit({
   chartLabels,
   chartData,
 }: PropsType) {
-  const options = {
+  const options = useChart({
     labels: chartLabels,
-  };
+    xaxis: {
+      type: "datetime",
+    },
+    plotOptions: {
+      bar: { columnWidth: "15%" },
+    },
+    fill: {
+      type: chartData.map((i) => i.fill),
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      y: {
+        formatter: (y: any) => {
+          if (typeof y !== "undefined") {
+            return `${y.toFixed(0)} visits`;
+          }
+          return y;
+        },
+      },
+    },
+  });
   return (
     <div className="rounded-lg p-5 shadow">
       <CardHeader title={title} subtitle={subtitle} />
@@ -31,30 +53,7 @@ function AppWebsiteVisit({
       <ReactApexChart
         type="line"
         series={chartData}
-        options={{
-          labels: chartLabels,
-          xaxis: {
-            type: "datetime",
-          },
-          plotOptions: {
-            bar: { columnWidth: "15%" },
-          },
-          fill: {
-            type: chartData.map((i) => i.fill),
-          },
-          tooltip: {
-            shared: true,
-            intersect: false,
-            y: {
-              formatter: (y) => {
-                if (typeof y !== "undefined") {
-                  return `${y.toFixed(0)} visits`;
-                }
-                return y;
-              },
-            },
-          },
-        }}
+        options={options}
         height={380}
       />
     </div>

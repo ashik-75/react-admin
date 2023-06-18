@@ -1,5 +1,6 @@
 import ReactApexChart from "react-apexcharts";
 import CardHeader from "../../../components/CardHeader/CardHeader";
+import useChart from "../../../components/chart/useChart";
 
 interface PropsType {
   title: string;
@@ -8,6 +9,9 @@ interface PropsType {
 }
 
 function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
+  const options = useChart({
+    labels: chartLabels,
+  });
   return (
     <div className="rounded-lg p-5 shadow">
       <CardHeader title={title} />
@@ -15,9 +19,7 @@ function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
       <ReactApexChart
         type="radar"
         series={chartData}
-        options={{
-          labels: chartLabels,
-        }}
+        options={options}
         height={380}
       />
     </div>
