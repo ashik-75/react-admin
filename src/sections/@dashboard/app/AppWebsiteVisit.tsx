@@ -23,12 +23,13 @@ function AppWebsiteVisit({
   chartData,
 }: PropsType) {
   const options = useChart({
-    labels: chartLabels,
+    colors: ["#0d9488", "#fb923c", "#71717a"],
+
     xaxis: {
-      type: "datetime",
+      categories: chartLabels,
     },
     plotOptions: {
-      bar: { columnWidth: "15%" },
+      bar: { columnWidth: "10%" },
     },
     fill: {
       type: chartData.map((i) => i.fill),

@@ -19,7 +19,30 @@ function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
       <ReactApexChart
         type="radar"
         series={chartData}
-        options={options}
+        options={{
+          labels: chartLabels,
+          colors: ["#8b5cf6", "#f97316", "#65a30d"],
+          chart: {
+            toolbar: {
+              show: false,
+            },
+          },
+          tooltip: {
+            x: {
+              show: false,
+            },
+          },
+          legend: {
+            position: "top",
+            horizontalAlign: "right",
+            fontWeight: 500,
+            labels: {
+              colors: ["#71717a"],
+            },
+            fontSize: "13px",
+            fontFamily: "Inter",
+          },
+        }}
         height={380}
       />
     </div>

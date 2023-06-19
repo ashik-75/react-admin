@@ -55,7 +55,45 @@ function AppSold({ title, subtitle, chartData }: PropsType) {
       <ReactApexChart
         type="radialBar"
         series={chartSeries}
-        options={options}
+        options={{
+          colors: ["#292524"],
+          plotOptions: {
+            radialBar: {
+              hollow: {
+                size: "60%",
+              },
+              dataLabels: {
+                name: {
+                  show: false,
+                },
+                total: {
+                  fontWeight: 800,
+                  color: "red",
+                },
+                value: {
+                  fontWeight: 900,
+                  fontSize: 23,
+                  offsetY: 10,
+                },
+              },
+            },
+          },
+          stroke: {
+            lineCap: "round",
+          },
+          fill: {
+            type: "gradient",
+
+            gradient: {
+              type: "vertical",
+              opacityTo: 0.9,
+              opacityFrom: 0.8,
+
+              shadeIntensity: 0.5,
+              stops: [0, 100],
+            },
+          },
+        }}
         height={180}
       />
     </div>

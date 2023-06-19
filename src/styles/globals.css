@@ -83,6 +83,10 @@
 
 @layer components {
   .icon {
-    @apply w-5 h-5;
+    @apply h-5 w-5;
   }
+}
+
+.apexcharts-legend {
+  padding: 20px;
 }

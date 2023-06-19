@@ -13,6 +13,7 @@ function AppConvertionRate({ title, subtitle, chartData }: PropsType) {
   const chartSeries = chartData.map((i) => i.value);
   const chartLabels = chartData.map((i) => i.label);
   const options = useChart({
+    colors: ["#0284c7"],
     labels: chartLabels,
     plotOptions: {
       bar: {

@@ -16,17 +16,17 @@ function DashboardAppPage() {
             title="Website Visits"
             subtitle="(+43%) than last year"
             chartLabels={[
-              "01/01/2003",
-              "02/01/2003",
-              "03/01/2003",
-              "04/01/2003",
-              "05/01/2003",
-              "06/01/2003",
-              "07/01/2003",
-              "08/01/2003",
-              "09/01/2003",
-              "10/01/2003",
-              "11/01/2003",
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sept",
+              "Oct",
+              "Nov",
             ]}
             chartData={[
               {
@@ -118,19 +118,7 @@ function DashboardAppPage() {
 
         <AppInstalled
           title="Area Installed"
-          // chartLabels={[
-          //   "01/01/2003",
-          //   "02/01/2003",
-          //   "03/01/2003",
-          //   "04/01/2003",
-          //   "05/01/2003",
-          //   "06/01/2003",
-          //   "07/01/2003",
-          //   "08/01/2003",
-          //   "09/01/2003",
-          //   "10/01/2003",
-          //   "11/01/2003",
-          // ]}
+          chartLabels={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]}
           chartData={[
             { name: "Asia", type: "area", data: [80, 50, 30, 40, 100, 20] },
             { name: "America", type: "area", data: [20, 30, 40, 80, 20, 80] },

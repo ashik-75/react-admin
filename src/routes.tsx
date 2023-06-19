@@ -34,7 +34,7 @@ export default function Router() {
           element: <BlogPage />,
         },
         {
-          path: "product",
+          path: "products",
           element: <ProductsPage />,
         },
       ],

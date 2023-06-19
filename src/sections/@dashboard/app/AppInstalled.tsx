@@ -6,9 +6,10 @@ interface PropsType {
   title: string;
   subtitle?: string;
   chartData: any[];
+  chartLabels: string[];
 }
 
-function AppInstalled({ title, chartData }: PropsType) {
+function AppInstalled({ title, chartData, chartLabels }: PropsType) {
   const options = useChart({
     stroke: {
       width: 2,
@@ -22,6 +23,11 @@ function AppInstalled({ title, chartData }: PropsType) {
         series={chartData}
         options={{
           colors: ["#1d4ed8", "#9f1239"],
+          // labels: chartLabels,
+          xaxis: {
+            // type: "datetime",
+            categories: chartLabels,
+          },
           chart: {
             zoom: {
               enabled: false,

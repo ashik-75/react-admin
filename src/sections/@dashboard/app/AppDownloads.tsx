@@ -64,7 +64,56 @@ function AppDownloads({ title, chartData }: PropsType) {
       <ReactApexChart
         type="donut"
         series={chartSeries}
-        options={options}
+        options={{
+          labels: chartLabels,
+          colors: ["#c026d3", "#1d4ed8", "#14532d", "#0e7490"],
+          legend: {
+            show: false,
+          },
+
+          dataLabels: {
+            enabled: false,
+          },
+          plotOptions: {
+            pie: {
+              donut: {
+                size: "92%",
+                labels: {
+                  show: true,
+                  value: {
+                    formatter: (v: any) => fNumber(v),
+                    fontSize: "30px",
+                    fontFamily: "Helvetica, Arial, sans-serif",
+                    fontWeight: 800,
+                  },
+                  name: {
+                    color: "#334155",
+                    fontSize: "50px",
+                    fontWeight: 500,
+                    fontFamily: "Helvetica, Arial, sans-serif",
+                  },
+                  total: {
+                    show: true,
+                    formatter: function (w: any) {
+                      return fNumber(
+                        w.globals.seriesTotals.reduce(
+                          (a: number, b: number) => {
+                            return a + b;
+                          },
+                          0
+                        )
+                      );
+                    },
+                    color: "black",
+                  },
+                },
+              },
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }}
         height={350}
       />
     </div>

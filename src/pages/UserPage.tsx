@@ -1,5 +1,11 @@
+import UsersTable from "../sections/@dashboard/user/UsersTable";
+
 function UserPage() {
-  return <div>UserPage</div>;
+  return (
+    <div>
+      <UsersTable />
+    </div>
+  );
 }
 
 export default UserPage;

@@ -52,7 +52,47 @@ function AppCurrentVisit({ title, chartData, chartColors }: PropsType) {
 
       <ReactApexChart
         series={chartSeries}
-        options={options}
+        options={{
+          labels: chartLabels,
+          colors: chartColors,
+          plotOptions: {
+            pie: {
+              donut: {
+                labels: {
+                  show: false,
+                },
+              },
+            },
+          },
+          legend: {
+            // floating: true,
+            horizontalAlign: "center",
+            position: "bottom",
+            floating: false,
+            itemMargin: {
+              horizontal: 8,
+            },
+            fontWeight: 500,
+            fontSize: "13px",
+            fontFamily: "Inter",
+            labels: {
+              colors: ["#6b7280"],
+            },
+          },
+          dataLabels: {
+            enabled: true,
+            dropShadow: {
+              enabled: false,
+            },
+          },
+          tooltip: {
+            enabled: true,
+
+            x: {
+              show: false,
+            },
+          },
+        }}
         type="pie"
         height={280}
       />
