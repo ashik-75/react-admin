@@ -1,6 +1,9 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { Checkbox } from "../../../components/ui/checkbox";
 import { UserType } from "../../../types";
+import { cn } from "../../../utils/cn";
+import DataColumnHeader from "./DataColumnHeader";
+import DataTableRowAction from "./DataTableRowAction";
 
 const columnHelper = createColumnHelper<UserType>();
 
@@ -21,7 +24,9 @@ export const columnStructure = [
     ),
   }),
   columnHelper.accessor("name", {
-    header: "Name",
+    header: ({ column }) => (
+      <DataColumnHeader title="Name" column={column} className="" />
+    ),
     cell: ({ row }) => {
       return (
         <div className="flex items-center gap-3">
@@ -36,10 +41,14 @@ export const columnStructure = [
     },
   }),
   columnHelper.accessor("company", {
-    header: "Company",
+    header: ({ column }) => (
+      <DataColumnHeader title="Company" column={column} className="" />
+    ),
   }),
   columnHelper.accessor("role", {
-    header: "Role",
+    header: ({ column }) => (
+      <DataColumnHeader title="Role" column={column} className="" />
+    ),
   }),
   columnHelper.accessor("isVerified", {
     header: "Verified",
@@ -51,5 +60,23 @@ export const columnStructure = [
   }),
   columnHelper.accessor("status", {
     header: "Status",
+    cell: ({ getValue }) => {
+      return (
+        <button
+          className={cn(
+            "py-.5 rounded-full px-2 font-semibold",
+            getValue() === "active"
+              ? "bg-green-600/20 text-green-600"
+              : "bg-pink-600/20 text-pink-600"
+          )}
+        >
+          {getValue()}
+        </button>
+      );
+    },
+  }),
+  columnHelper.display({
+    id: "actions",
+    cell: ({ row }) => <DataTableRowAction id={row.original.id} />,
   }),
 ];
