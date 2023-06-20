@@ -1,5 +1,6 @@
 import ReactApexChart from "react-apexcharts";
-import CardHeader from "../../../components/CardHeader/CardHeader";
+import { Chartwrapper } from "../../../components/chart";
+import ChartHeader from "../../../components/chart/ChartHeader";
 import useChart from "../../../components/chart/useChart";
 import { fNumber } from "../../../utils/formatNumber";
 
@@ -58,8 +59,8 @@ function AppDownloads({ title, chartData }: PropsType) {
     },
   });
   return (
-    <div className="rounded-lg p-5 shadow-lg">
-      <CardHeader title={title} />
+    <Chartwrapper>
+      <ChartHeader title={title} />
 
       <ReactApexChart
         type="donut"
@@ -116,7 +117,7 @@ function AppDownloads({ title, chartData }: PropsType) {
         }}
         height={350}
       />
-    </div>
+    </Chartwrapper>
   );
 }
 

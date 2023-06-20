@@ -1,4 +1,10 @@
-function CardHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+function ChartHeader({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div>
       <h1 className="text-lg font-bold">{title}</h1>
@@ -7,4 +13,4 @@ function CardHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   );
 }
 
-export default CardHeader;
+export default ChartHeader;

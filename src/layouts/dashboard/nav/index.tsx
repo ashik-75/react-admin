@@ -12,7 +12,7 @@ function Navbar({
   setOpen: (value: boolean) => void;
 }) {
   return (
-    <div className="sticky left-0 top-0 hidden h-screen w-[280px] border-r border-dashed bg-white xl:block">
+    <div className="sticky left-0 top-0 hidden h-screen w-[280px] border-r border-dashed bg-white dark:bg-slate-950 xl:block">
       <div className="h-screen space-y-10 overflow-y-scroll scrollbar-hide">
         <RenderNav />
 
@@ -36,7 +36,7 @@ function RenderNav() {
         />
       </div>
       {/* User */}
-      <div className="flex items-center gap-4 rounded-lg bg-zinc-100 px-4 py-2 shadow-sm">
+      <div className="flex items-center gap-4 rounded-lg bg-zinc-100 px-4 py-2 shadow-sm dark:bg-slate-900">
         <img
           className="h-12 w-12 rounded-full"
           src="/assets/images/avatars/avatar_1.jpg"
@@ -55,7 +55,7 @@ function RenderNav() {
               className={({ isActive }) =>
                 cn(
                   `flex items-center gap-4 rounded px-2 py-2`,
-                  isActive && "bg-zinc-100"
+                  isActive && "bg-zinc-100 dark:bg-slate-900"
                 )
               }
             >

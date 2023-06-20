@@ -1,8 +1,13 @@
 import { faker } from "@faker-js/faker";
-import { Menu, Transition } from "@headlessui/react";
 import { set, sub } from "date-fns";
-import { Bell, Clock } from "lucide-react";
-import { Fragment, useState } from "react";
+import { BellRing, Clock } from "lucide-react";
+import { useState } from "react";
+import { Button } from "../../../components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../../../components/ui/popover";
 import { fToNow } from "../../../utils/formatDate";
 
 // -----------------------------------------------------------
@@ -59,77 +64,49 @@ const NOTIFICATIONS = [
 function Notification() {
   const [notifications, setNotifications] = useState(NOTIFICATIONS);
   return (
-    <div>
-      <Menu>
-        <Menu.Button>
-          <Bell className="h-6 w-6" />
-        </Menu.Button>
+    <Popover>
+      <PopoverTrigger>
+        <Button variant={"ghost"}>
+          <BellRing className="h-5 w-5 text-muted-foreground" />
+        </Button>
+      </PopoverTrigger>
 
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <Menu.Items className="absolute right-5 mt-2 w-[400px] origin-top-right  rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="border-b border-dashed px-1 py-1 ">
-              <Menu.Item>
-                {() => (
-                  <button
-                    className={` group flex w-full flex-col items-start rounded-md px-2 py-2 text-sm`}
-                  >
-                    <h4 className="font-bold">Notifications</h4>
-
-                    <p className="text-zinc-700">You have 0 unread messages</p>
-                  </button>
-                )}
-              </Menu.Item>
+      <PopoverContent className="space-y-3">
+        {notifications.map((notification) => (
+          <div
+            key={notification.id}
+            className={`group flex w-full cursor-pointer items-start space-x-2 border-b p-1 pb-2 text-sm text-gray-900`}
+          >
+            <div className="h-8 w-8 shrink-0">
+              <img
+                className=" rounded-full object-cover"
+                src={notification.avatar || ""}
+                alt=""
+              />
             </div>
-            {notifications.map((notification) => (
-              <Menu.Item key={notification.id}>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-zinc-100" : ""
-                    } group flex w-full cursor-pointer items-center space-x-2 p-4 text-sm text-gray-900`}
-                  >
-                    <div>
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={notification.avatar || ""}
-                        alt=""
-                      />
-                    </div>
-                    <div>
-                      <div>
-                        <span className="mr-2 shrink-0 font-bold">
-                          {notification.title}
-                        </span>
-                        <span className="text-zinc-500">
-                          {notification.description}
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span>
-                          <Clock className="h-4 w-4 text-zinc-400" />
-                        </span>
+            <div className="flex-1">
+              <div>
+                <span className="mr-2 shrink-0 font-medium dark:text-white">
+                  {notification.title}
+                </span>
+                <span className="text-zinc-500 dark:text-zinc-400">
+                  {notification.description}
+                </span>
+              </div>
+              <div className="mt-2 flex items-center space-x-2">
+                <span>
+                  <Clock className="h-4 w-4 text-zinc-400" />
+                </span>
 
-                        <span className="text-sm text-zinc-500">
-                          {fToNow(notification.createdAt)}
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                )}
-              </Menu.Item>
-            ))}
-          </Menu.Items>
-        </Transition>
-      </Menu>
-    </div>
+                <span className="text-xs text-zinc-500">
+                  {fToNow(notification.createdAt)}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </PopoverContent>
+    </Popover>
   );
 }
 

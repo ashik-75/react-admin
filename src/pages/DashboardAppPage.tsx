@@ -3,8 +3,6 @@ import AppCurrentSubject from "../sections/@dashboard/app/AppCurrentSubject";
 import AppCurrentVisit from "../sections/@dashboard/app/AppCurrentVisit";
 import AppDownloads from "../sections/@dashboard/app/AppDownloads";
 import AppInstalled from "../sections/@dashboard/app/AppInstalled";
-import AppSold from "../sections/@dashboard/app/AppSold";
-import AppSparkline from "../sections/@dashboard/app/AppSparkline";
 import AppWebsiteVisit from "../sections/@dashboard/app/AppWebsiteVisit";
 
 function DashboardAppPage() {
@@ -122,23 +120,6 @@ function DashboardAppPage() {
           chartData={[
             { name: "Asia", type: "area", data: [80, 50, 30, 40, 100, 20] },
             { name: "America", type: "area", data: [20, 30, 40, 80, 20, 80] },
-          ]}
-        />
-      </div>
-
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <AppSold
-          title="Current Download"
-          subtitle="(+10%) than last year"
-          chartData={[{ label: "Sold", value: 70 }]}
-        />
-
-        <AppSparkline
-          title="Total Active users"
-          chartData={[
-            {
-              data: [80, 50, 30, 40, 100, 20, 300, 278, 78, 38, 89],
-            },
           ]}
         />
       </div>

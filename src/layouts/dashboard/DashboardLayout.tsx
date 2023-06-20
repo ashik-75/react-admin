@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+
+import { cn } from "../../utils/cn";
 import Header from "./header";
 import Navbar from "./nav";
 
@@ -7,7 +9,7 @@ function DashboardLayout() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex ">
+    <div className={cn("flex")}>
       <div>
         <Navbar open={open} setOpen={setOpen} />
       </div>

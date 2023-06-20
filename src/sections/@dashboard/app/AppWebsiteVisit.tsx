@@ -1,5 +1,6 @@
 import ReactApexChart from "react-apexcharts";
-import CardHeader from "../../../components/CardHeader/CardHeader";
+import { Chartwrapper } from "../../../components/chart";
+import ChartHeader from "../../../components/chart/ChartHeader";
 import useChart from "../../../components/chart/useChart";
 
 interface ChartDataType {
@@ -48,8 +49,8 @@ function AppWebsiteVisit({
     },
   });
   return (
-    <div className="rounded-lg p-5 shadow">
-      <CardHeader title={title} subtitle={subtitle} />
+    <Chartwrapper>
+      <ChartHeader title={title} subtitle={subtitle} />
 
       <ReactApexChart
         type="line"
@@ -57,7 +58,7 @@ function AppWebsiteVisit({
         options={options}
         height={380}
       />
-    </div>
+    </Chartwrapper>
   );
 }
 

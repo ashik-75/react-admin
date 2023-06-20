@@ -1,5 +1,5 @@
 import ReactApexChart from "react-apexcharts";
-import CardHeader from "../../../components/CardHeader/CardHeader";
+import CardHeader from "../../../components/chart/ChartHeader";
 import useChart from "../../../components/chart/useChart";
 import { fNumber } from "../../../utils/formatNumber";
 

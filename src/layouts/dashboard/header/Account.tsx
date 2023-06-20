@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,29 +37,31 @@ function ProfileDropDown() {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <img
-          src="/assets/images/avatars/avatar_1.jpg"
+          src={faker.image.avatar()}
           className="h-10 w-10 rounded-full"
           alt=""
         />
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem>
+          <div>
+            <h1 className="font-medium">Alex Moore</h1>
+            <p className="text-zinc-500">pixelian.cc</p>
+          </div>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         {MENU_OPTIONS.map((menu) => (
-          <>
-            <DropdownMenuItem key={menu.label} className="px-1 py-1 ">
-              <div key={menu.label}>
-                <button
-                  className={`group flex w-full cursor-pointer items-center space-x-2 rounded-md px-2 py-2 text-sm text-gray-900`}
-                >
-                  <img src={menu.icon} alt="" />
-                  <label htmlFor="">{menu.label}</label>
-                </button>
-              </div>
-            </DropdownMenuItem>
-
-            <DropdownMenuSeparator />
-          </>
+          <DropdownMenuItem key={menu.label}>
+            <label className="dark:text-white">{menu.label}</label>
+          </DropdownMenuItem>
         ))}
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem>
+          <p className="font-medium text-rose-500">Logout</p>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

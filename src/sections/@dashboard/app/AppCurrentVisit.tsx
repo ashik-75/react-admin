@@ -1,5 +1,5 @@
 import ReactApexChart from "react-apexcharts";
-import CardHeader from "../../../components/CardHeader/CardHeader";
+import { ChartHeader, Chartwrapper } from "../../../components/chart";
 import useChart from "../../../components/chart/useChart";
 import { fNumber } from "../../../utils/formatNumber";
 
@@ -47,8 +47,8 @@ function AppCurrentVisit({ title, chartData, chartColors }: PropsType) {
     },
   });
   return (
-    <div className="rounded-lg p-5 shadow">
-      <CardHeader title={title} />
+    <Chartwrapper>
+      <ChartHeader title={title} />
 
       <ReactApexChart
         series={chartSeries}
@@ -96,7 +96,7 @@ function AppCurrentVisit({ title, chartData, chartColors }: PropsType) {
         type="pie"
         height={280}
       />
-    </div>
+    </Chartwrapper>
   );
 }
 

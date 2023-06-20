@@ -52,7 +52,7 @@ function UserList() {
   });
 
   return (
-    <div>
+    <div className="rounded-lg p-4 shadow dark:shadow-lg dark:shadow-slate-800">
       <DataTableToolBar table={table} />
       <Table>
         <TableHeader>
