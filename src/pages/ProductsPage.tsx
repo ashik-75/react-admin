@@ -1,5 +1,11 @@
+import ProductList from "../sections/@dashboard/products/ProductList";
+
 function ProductsPage() {
-  return <div>product page</div>;
+  return (
+    <div>
+      <ProductList />
+    </div>
+  );
 }
 
 export default ProductsPage;

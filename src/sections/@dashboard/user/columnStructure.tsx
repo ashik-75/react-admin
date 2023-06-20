@@ -2,8 +2,9 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { Checkbox } from "../../../components/ui/checkbox";
 import { UserType } from "../../../types";
 import { cn } from "../../../utils/cn";
-import DataColumnHeader from "./DataColumnHeader";
-import DataTableRowAction from "./DataTableRowAction";
+
+import { DataTableColumnHeader } from "../../../components/table";
+import DataTableRowAction from "../../../components/table/data-table-row-action";
 
 const columnHelper = createColumnHelper<UserType>();
 
@@ -25,7 +26,7 @@ export const columnStructure = [
   }),
   columnHelper.accessor("name", {
     header: ({ column }) => (
-      <DataColumnHeader title="Name" column={column} className="" />
+      <DataTableColumnHeader title="Name" column={column} className="" />
     ),
     cell: ({ row }) => {
       return (
@@ -42,12 +43,12 @@ export const columnStructure = [
   }),
   columnHelper.accessor("company", {
     header: ({ column }) => (
-      <DataColumnHeader title="Company" column={column} className="" />
+      <DataTableColumnHeader title="Company" column={column} className="" />
     ),
   }),
   columnHelper.accessor("role", {
     header: ({ column }) => (
-      <DataColumnHeader title="Role" column={column} className="" />
+      <DataTableColumnHeader title="Role" column={column} className="" />
     ),
   }),
   columnHelper.accessor("isVerified", {
@@ -77,6 +78,6 @@ export const columnStructure = [
   }),
   columnHelper.display({
     id: "actions",
-    cell: ({ row }) => <DataTableRowAction id={row.original.id} />,
+    cell: ({ row }) => <DataTableRowAction />,
   }),
 ];

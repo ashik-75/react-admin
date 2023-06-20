@@ -1,5 +1,5 @@
 import { Table } from "@tanstack/react-table";
-import { Input } from "../../../components/ui/input";
+import { Input } from "../ui/input";
 
 interface PropsType<TData> {
   table: Table<TData>;

@@ -1,9 +1,9 @@
-import UserList from "../sections/@dashboard/user/Table";
+import UsersTable from "../sections/@dashboard/user/users-table";
 
 function UserPage() {
   return (
     <div>
-      <UserList />
+      <UsersTable />
     </div>
   );
 }

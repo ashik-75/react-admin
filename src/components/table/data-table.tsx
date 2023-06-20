@@ -10,7 +10,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
-import { users } from "../../../_mock/users";
+import { DataTablePagination, DataTableToolBar } from ".";
 import {
   Table,
   TableBody,
@@ -18,25 +18,26 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../components/ui/table";
-import DataTablePagination from "./DataTablePagination";
-// import { columnStructure } from "./columnStructure";
-import { columnStructure } from "./columnStructure";
-import DataTableToolBar from "./data-table-toolbar";
+} from "../ui/table";
 
-function UserList() {
-  const columns = useMemo(() => {
-    return columnStructure;
+interface TableProps {
+  column: any;
+  data: any;
+}
+
+function DataTable({ column, data }: TableProps) {
+  const memoMolumns = useMemo(() => {
+    return column;
   }, []);
-  const data = useMemo(() => {
-    return users;
+  const memoData = useMemo(() => {
+    return data;
   }, []);
   const [columnFilters, setColumnFilter] = useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const table = useReactTable({
-    columns,
-    data,
+    columns: memoMolumns,
+    data: memoData,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -93,4 +94,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+export default DataTable;

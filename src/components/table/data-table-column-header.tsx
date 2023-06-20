@@ -1,14 +1,14 @@
 import { Column } from "@tanstack/react-table";
 import { ArrowUpDown, EyeOff, SortAsc, SortDesc } from "lucide-react";
-import { Button } from "../../../components/ui/button";
+import { cn } from "../../utils/cn";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../../components/ui/dropdown-menu";
-import { cn } from "../../../utils/cn";
+} from "../ui/dropdown-menu";
 
 interface DataColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,7 +17,7 @@ interface DataColumnHeaderProps<TData, TValue>
   className: string;
 }
 
-function DataColumnHeader<TData, TValue>({
+function DataTableColumnHeader<TData, TValue>({
   title,
   column,
   className,
@@ -68,4 +68,4 @@ function DataColumnHeader<TData, TValue>({
   );
 }
 
-export default DataColumnHeader;
+export default DataTableColumnHeader;
