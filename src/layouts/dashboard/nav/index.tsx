@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { NavLink } from "react-router-dom";
@@ -27,19 +28,15 @@ export default Navbar;
 function RenderNav() {
   return (
     <div className="space-y-10 p-5">
-      {/* logo */}
-      <div>
-        <img
-          className="h-10 w-10"
-          src="/assets/images/avatars/avatar_10.jpg"
-          alt=""
-        />
-      </div>
       {/* User */}
       <div className="flex items-center gap-4 rounded-lg bg-zinc-100 px-4 py-2 shadow-sm dark:bg-slate-900">
         <img
-          className="h-12 w-12 rounded-full"
-          src="/assets/images/avatars/avatar_1.jpg"
+          className="h-10 w-10 rounded-full"
+          src={faker.image.urlLoremFlickr({
+            category: "people",
+            width: 100,
+            height: 100,
+          })}
           alt=""
         />
         <h1 className=" font-semibold">Fransis Jonex</h1>

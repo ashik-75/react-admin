@@ -15,14 +15,14 @@ function BlogCard({
   status,
 }: BlogType) {
   return (
-    <div className="grid grid-cols-1 gap-5 rounded-lg border bg-slate-900 p-3 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-5 rounded-lg border p-3 dark:bg-slate-900 sm:grid-cols-3">
       <div className="col-span-2 space-y-2">
         <div className="flex justify-between">
           <p
             className={`flex items-center justify-center rounded-full  px-2 py-1 text-xs font-medium ${
               status === "draft"
-                ? "bg-slate-900"
-                : "bg-green-800/30 text-green-300"
+                ? "bg-slate-500 text-white dark:bg-slate-800"
+                : "bg-green-500/40 text-green-800 dark:bg-green-800/30"
             }`}
           >
             {status}
@@ -59,7 +59,7 @@ function BlogCard({
       <div className="min-h-[200px]">
         <img
           src={image}
-          className="h-full w-full rounded-xl bg-slate-500 object-cover backdrop-blur-xl"
+          className="h-full w-full rounded-xl bg-slate-500/20 object-cover backdrop-blur-xl"
           alt=""
           loading="lazy"
         />

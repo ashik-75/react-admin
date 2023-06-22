@@ -24,6 +24,8 @@ export const columnStructure = [
         onCheckedChange={() => row.toggleSelected()}
       />
     ),
+    enableSorting: false,
+    enableColumnFilter: false,
   }),
   columnHelper.accessor("title", {
     header: ({ column }) => (
@@ -31,13 +33,19 @@ export const columnStructure = [
     ),
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
-        <img src={row.original.image} className="h-14 w-14 rounded-lg" alt="" />
+        <img
+          src={row.original.image}
+          className="h-12 w-12 rounded-lg opacity-75"
+          alt=""
+        />
         <span>{row.original.title}</span>
       </div>
     ),
   }),
   columnHelper.accessor("createdAt", {
-    header: "Create At",
+    header: ({ column }) => (
+      <DataTableColumnHeader title="Created At" column={column} className="" />
+    ),
     cell: ({ getValue }) => (
       <div>
         <p>{fDate(getValue())}</p>
@@ -45,11 +53,21 @@ export const columnStructure = [
     ),
   }),
   columnHelper.accessor("stock", {
-    header: "Stock",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} className="" title="Stock" />
+    ),
     cell: ({ getValue }) => <span>{getValue()}</span>,
+    filterFn: (row, id, value) => {
+      if (!value) {
+        return true;
+      }
+      return (row.getValue(id) as number) >= value;
+    },
   }),
   columnHelper.accessor("price", {
-    header: "Price",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Price" className="" />
+    ),
     cell: ({ getValue }) => <span>${getValue()}</span>,
   }),
   columnHelper.accessor("status", {
@@ -60,15 +78,18 @@ export const columnStructure = [
       return (
         <button
           className={cn(
-            "py-.5 rounded px-1 font-medium",
+            "rounded px-2 py-1 font-medium shadow",
             getValue() === "published"
-              ? "bg-green-400/20 text-green-600"
+              ? "bg-green-400/20 text-green-400"
               : "bg-zinc-500/20 text-white"
           )}
         >
           {getValue()}
         </button>
       );
+    },
+    filterFn: (row, id, values) => {
+      return values.includes(row.getValue(id));
     },
   }),
   columnHelper.display({

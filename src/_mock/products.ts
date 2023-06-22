@@ -6,8 +6,8 @@ export const products: ProductType[] = [...Array(100)].map((_, index) => ({
   id: faker.string.uuid(),
   title: faker.commerce.productName(),
   image: faker.image.urlPicsumPhotos({
-    width: 250,
-    height: 250,
+    width: 100,
+    height: 100,
   }),
   price: faker.number.float({ min: 10, max: 999, precision: 0.01 }),
   createdAt: faker.date.past(),

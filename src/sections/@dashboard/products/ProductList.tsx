@@ -1,6 +1,7 @@
 import { products } from "../../../_mock/products";
-import { DataTable } from "../../../components/table";
+
 import { columnStructure } from "./columns";
+import DataTable from "./data-table";
 
 function ProductList() {
   return (
