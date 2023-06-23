@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { sample } from "lodash";
 import { BlogType } from "../types";
 
-const blogs: BlogType[] = [...Array(50)].map((id) => ({
+const blogs: BlogType[] = [...Array(50)].map(() => ({
   id: faker.string.uuid(),
   title: faker.lorem.sentence(5),
   comment: faker.number.float({ precision: 0.01 }),
