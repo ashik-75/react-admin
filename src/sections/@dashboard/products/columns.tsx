@@ -4,6 +4,7 @@ import {
   DataTableRowAction,
 } from "../../../components/table";
 import { Checkbox } from "../../../components/ui/checkbox";
+import { Slider } from "../../../components/ui/slider";
 import { ProductType } from "../../../types";
 import { cn } from "../../../utils/cn";
 import { fDate } from "../../../utils/formatDate";
@@ -51,7 +52,30 @@ export const columnStructure = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} className="" title="Stock" />
     ),
-    cell: ({ getValue }) => <span>{getValue()}</span>,
+    cell: ({ getValue, row }) => {
+      const value = row.original.stock;
+
+      return (
+        <div>
+          <span>{value}</span>
+
+          <Slider
+            color={
+              value < 20
+                ? "bg-rose-400"
+                : value < 50
+                ? "bg-yellow-400"
+                : "bg-green-400"
+            }
+            disabled
+            defaultValue={[value]}
+            max={100}
+          />
+
+          <div>{value < 20 ? "too low" : value < 50 ? "medium" : "good"}</div>
+        </div>
+      );
+    },
     filterFn: (row, id, value) => {
       if (!value) {
         return true;
