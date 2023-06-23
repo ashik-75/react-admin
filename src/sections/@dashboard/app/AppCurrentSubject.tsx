@@ -1,6 +1,5 @@
 import ReactApexChart from "react-apexcharts";
 import { ChartHeader, Chartwrapper } from "../../../components/chart";
-import useChart from "../../../components/chart/useChart";
 
 interface PropsType {
   title: string;
@@ -9,9 +8,6 @@ interface PropsType {
 }
 
 function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
-  const options = useChart({
-    labels: chartLabels,
-  });
   return (
     <Chartwrapper>
       <ChartHeader title={title} />

@@ -6,10 +6,10 @@ import BlogDropdownMenu from "./blog-dropdown-menu";
 function BlogCard({
   title,
   image,
-  author,
+
   comment,
   createdAt,
-  favourite,
+
   share,
   view,
   status,

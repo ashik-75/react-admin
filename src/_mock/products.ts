@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { sample } from "lodash";
 import { ProductType } from "../types";
 
-export const products: ProductType[] = [...Array(100)].map((_, index) => ({
+export const products: ProductType[] = [...Array(100)].map(() => ({
   id: faker.string.uuid(),
   title: faker.commerce.productName(),
   image: faker.image.urlPicsumPhotos({

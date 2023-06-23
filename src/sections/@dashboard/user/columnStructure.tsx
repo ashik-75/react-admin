@@ -78,6 +78,6 @@ export const columnStructure = [
   }),
   columnHelper.display({
     id: "actions",
-    cell: ({ row }) => <DataTableRowAction />,
+    cell: () => <DataTableRowAction />,
   }),
 ];

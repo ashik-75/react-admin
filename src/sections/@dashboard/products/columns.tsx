@@ -52,7 +52,7 @@ export const columnStructure = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} className="" title="Stock" />
     ),
-    cell: ({ getValue, row }) => {
+    cell: ({ row }) => {
       const value = row.original.stock;
 
       return (

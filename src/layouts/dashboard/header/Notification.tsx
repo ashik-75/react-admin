@@ -62,7 +62,7 @@ const NOTIFICATIONS = [
 // -------------------------------------------------------------------
 
 function Notification() {
-  const [notifications, setNotifications] = useState(NOTIFICATIONS);
+  const [notifications] = useState(NOTIFICATIONS);
   return (
     <Popover>
       <PopoverTrigger>

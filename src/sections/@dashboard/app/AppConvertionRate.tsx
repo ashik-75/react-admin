@@ -9,7 +9,7 @@ interface PropsType {
   chartData: { label: string; value: number }[];
 }
 
-function AppConvertionRate({ title, subtitle, chartData }: PropsType) {
+function AppConvertionRate({ title, chartData }: PropsType) {
   const chartSeries = chartData.map((i) => i.value);
   const chartLabels = chartData.map((i) => i.label);
   const options = useChart({

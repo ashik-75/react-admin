@@ -14,7 +14,7 @@ function Navbar({
 }) {
   return (
     <div className="sticky left-0 top-0 hidden h-screen w-[280px] border-r border-dashed bg-white dark:bg-slate-950 xl:block">
-      <div className="h-screen space-y-10 overflow-y-scroll scrollbar-hide">
+      <div className="scrollbar-hide h-screen space-y-10 overflow-y-scroll">
         <RenderNav />
 
         <MobileNav open={open} setOpen={setOpen} />
@@ -29,17 +29,16 @@ function RenderNav() {
   return (
     <div className="space-y-10 p-5">
       {/* User */}
-      <div className="flex items-center gap-4 rounded-lg bg-zinc-100 px-4 py-2 shadow-sm dark:bg-slate-900">
+      <div>
         <img
-          className="h-10 w-10 rounded-full"
+          className="h-10 w-10 rounded-lg"
           src={faker.image.urlLoremFlickr({
-            category: "people",
+            category: "nature",
             width: 100,
             height: 100,
           })}
           alt=""
         />
-        <h1 className=" font-semibold">Fransis Jonex</h1>
       </div>
 
       {/* Menus */}
