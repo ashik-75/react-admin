@@ -33,11 +33,6 @@ export const columnStructure = [
     ),
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
-        <img
-          src={row.original.image}
-          className="h-12 w-12 rounded-lg opacity-75"
-          alt=""
-        />
         <span>{row.original.title}</span>
       </div>
     ),
@@ -80,8 +75,8 @@ export const columnStructure = [
           className={cn(
             "rounded px-2 py-1 font-medium shadow",
             getValue() === "published"
-              ? "bg-green-400/20 text-green-400"
-              : "bg-zinc-500/20 text-white"
+              ? "bg-green-500 text-white dark:bg-green-400/20 dark:text-green-400"
+              : "bg-zinc-700 text-white dark:bg-zinc-500/20"
           )}
         >
           {getValue()}
