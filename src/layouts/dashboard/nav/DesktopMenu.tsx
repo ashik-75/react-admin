@@ -7,11 +7,7 @@ export function DesktopMenu() {
   return (
     <div className="relative p-5">
       <div className="my-10 flex items-center gap-5">
-        <img
-          className="h-10 w-10 rounded-lg"
-          src={`/assets/images/avatars/avatar_8.jpg`}
-          alt=""
-        />
+        <img className="h-10 w-10 rounded-lg" src={`/icon.png`} alt="" />
 
         <span>Pixelian</span>
       </div>

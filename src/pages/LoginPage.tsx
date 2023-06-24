@@ -1,15 +1,20 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import LoginIcon from "../components/LoginIcon/LoginIcon";
 import LoginForm from "../sections/auth/login/LoginForm";
 
 function LoginPage() {
   return (
     <div className="flex h-screen">
+      <Helmet>Login Page | Pixelian</Helmet>
       <div className="hidden w-[400px] space-y-10 p-10 shadow-xl md:block">
         <div>
-          <img src="/slack.png" className="h-10 w-10" alt="" />
+          <Link to={"/"}>
+            <img src="/icon.png" className="h-10 w-10" alt="" />
+          </Link>
         </div>
 
-        <h1 className="text-2xl font-bold text-zinc-700">
+        <h1 className="text-2xl font-bold text-zinc-700 dark:text-zinc-300">
           Hello, Wellcome Back
         </h1>
 

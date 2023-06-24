@@ -28,11 +28,7 @@ export function MobileNav() {
             className="my-10 block"
           >
             <div className="flex items-center gap-2">
-              <img
-                src={"/assets/images/avatars/avatar_8.jpg"}
-                className="h-10 w-10 rounded"
-                alt=""
-              />
+              <img src={"/icon.png"} className="h-10 w-10 rounded" alt="" />
               <h1 className="font-medium">Pixelian</h1>
             </div>
           </MobileLink>
