@@ -7,7 +7,7 @@ interface PropsType<TData> {
 
 function DataTableToolBar<TData>({ table }: PropsType<TData>) {
   return (
-    <div>
+    <div className="my-5">
       <div>
         <Input
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}

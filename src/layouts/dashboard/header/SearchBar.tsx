@@ -18,7 +18,10 @@ function SearchBar() {
         </SheetTrigger>
 
         <SheetContent side={"top"} className="pt-10">
-          <Input placeholder="search anything ...." />
+          <Input
+            className="mx-auto max-w-xl"
+            placeholder="search anything ...."
+          />
         </SheetContent>
       </Sheet>
     </div>
