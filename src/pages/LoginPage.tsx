@@ -19,7 +19,7 @@ function LoginPage() {
       <div className="flex h-full flex-1 items-center justify-center">
         <div className="w-[350px] space-y-5 md:w-[500px]">
           <div className="w-full">
-            <h1 className="text-xl font-bold">Sign in to Minimal</h1>
+            <h1 className="text-xl font-bold">Sign in to Pixelian</h1>
 
             <p className="text-zinc-500">
               Don’t have an account?{" "}
