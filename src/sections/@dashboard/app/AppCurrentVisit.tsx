@@ -6,6 +6,7 @@ interface PropsType {
   subtitle?: string;
   chartData: { label: string; value: number }[];
   chartColors: string[];
+  theme?: string;
 }
 
 function AppCurrentVisit({ title, chartData, chartColors }: PropsType) {

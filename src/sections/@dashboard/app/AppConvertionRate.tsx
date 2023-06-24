@@ -1,4 +1,5 @@
 import ReactApexChart from "react-apexcharts";
+import { Chartwrapper } from "../../../components/chart";
 import CardHeader from "../../../components/chart/ChartHeader";
 import useChart from "../../../components/chart/useChart";
 import { fNumber } from "../../../utils/formatNumber";
@@ -7,9 +8,10 @@ interface PropsType {
   title: string;
   subtitle: string;
   chartData: { label: string; value: number }[];
+  theme?: string;
 }
 
-function AppConvertionRate({ title, chartData }: PropsType) {
+function AppConvertionRate({ title, chartData, theme }: PropsType) {
   const chartSeries = chartData.map((i) => i.value);
   const chartLabels = chartData.map((i) => i.label);
   const options = useChart({
@@ -22,10 +24,14 @@ function AppConvertionRate({ title, chartData }: PropsType) {
         barHeight: "25%",
       },
     },
+    theme: {
+      mode: theme === "dark" ? "dark" : "light",
+    },
     tooltip: {
       marker: {
         show: false,
       },
+
       y: {
         formatter: (n: number) => fNumber(n),
         title: {
@@ -35,7 +41,7 @@ function AppConvertionRate({ title, chartData }: PropsType) {
     },
   });
   return (
-    <div className="rounded-lg p-5 shadow">
+    <Chartwrapper>
       <CardHeader title={title} />
 
       <ReactApexChart
@@ -44,7 +50,7 @@ function AppConvertionRate({ title, chartData }: PropsType) {
         series={[{ data: chartSeries }]}
         height={380}
       />
-    </div>
+    </Chartwrapper>
   );
 }
 

@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import AppConvertionRate from "../sections/@dashboard/app/AppConvertionRate";
 import AppCurrentSubject from "../sections/@dashboard/app/AppCurrentSubject";
 import AppCurrentVisit from "../sections/@dashboard/app/AppCurrentVisit";
@@ -6,6 +7,7 @@ import AppInstalled from "../sections/@dashboard/app/AppInstalled";
 import AppWebsiteVisit from "../sections/@dashboard/app/AppWebsiteVisit";
 
 function DashboardAppPage() {
+  const { theme } = useTheme();
   return (
     <div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -13,6 +15,7 @@ function DashboardAppPage() {
           <AppWebsiteVisit
             title="Website Visits"
             subtitle="(+43%) than last year"
+            theme={theme}
             chartLabels={[
               "Jan",
               "Feb",
@@ -51,6 +54,7 @@ function DashboardAppPage() {
 
         <div className="col-span-1">
           <AppCurrentVisit
+            theme={theme}
             title="Current Visit"
             chartData={[
               { label: "America", value: 4344 },
@@ -66,6 +70,7 @@ function DashboardAppPage() {
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
         <div className="col-span-2">
           <AppConvertionRate
+            theme={theme}
             title="Conversion Rates"
             subtitle="(+43%) than last year"
             chartData={[
@@ -85,6 +90,7 @@ function DashboardAppPage() {
 
         <div className="col-span-1">
           <AppCurrentSubject
+            theme={theme}
             title="Current Subject"
             chartData={[
               { name: "Semister", data: [80, 50, 30, 40, 100, 20] },
@@ -104,6 +110,7 @@ function DashboardAppPage() {
       </div>
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <AppDownloads
+          theme={theme}
           title="Current Download"
           subtitle="(+10%) than last year"
           chartData={[
@@ -115,6 +122,7 @@ function DashboardAppPage() {
         />
 
         <AppInstalled
+          theme={theme}
           title="Area Installed"
           chartLabels={["Jan", "Feb", "Mar", "Apr", "May", "Jun"]}
           chartData={[

@@ -5,9 +5,15 @@ interface PropsType {
   title: string;
   chartData: { name: string; data: number[] }[];
   chartLabels: string[];
+  theme?: string;
 }
 
-function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
+function AppCurrentSubject({
+  title,
+  chartData,
+  theme,
+  chartLabels,
+}: PropsType) {
   return (
     <Chartwrapper>
       <ChartHeader title={title} />
@@ -27,6 +33,9 @@ function AppCurrentSubject({ title, chartData, chartLabels }: PropsType) {
             x: {
               show: false,
             },
+          },
+          theme: {
+            mode: theme === "dark" ? "dark" : "light",
           },
           legend: {
             position: "top",

@@ -7,9 +7,10 @@ interface PropsType {
   subtitle?: string;
   chartData: any[];
   chartLabels: string[];
+  theme?: string;
 }
 
-function AppInstalled({ title, chartData, chartLabels }: PropsType) {
+function AppInstalled({ title, chartData, chartLabels, theme }: PropsType) {
   return (
     <Chartwrapper>
       <ChartHeader title={title} />
@@ -17,7 +18,7 @@ function AppInstalled({ title, chartData, chartLabels }: PropsType) {
       <ReactApexChart
         series={chartData}
         options={{
-          colors: ["#1d4ed8", "#9f1239"],
+          colors: ["#d8b91d", "#ff0e52"],
           // labels: chartLabels,
           xaxis: {
             // type: "datetime",
@@ -34,6 +35,9 @@ function AppInstalled({ title, chartData, chartLabels }: PropsType) {
               enabled: true,
             },
           },
+          theme: {
+            mode: theme === "dark" ? "dark" : "light",
+          },
           fill: {
             type: "gradient",
             gradient: {
@@ -46,14 +50,6 @@ function AppInstalled({ title, chartData, chartLabels }: PropsType) {
           stroke: {
             curve: "smooth",
             width: 5,
-            fill: {
-              type: "gradient",
-              gradient: {
-                opacityFrom: 0.5,
-                opacityTo: 0.9,
-                type: "vertical",
-              },
-            },
           },
           tooltip: {
             x: {
